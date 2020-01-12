@@ -6,21 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dog API</title>
     <link rel="shortcut icon" href="">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Dog API: Pick Up To 50 Dogs!</h1>
 
-        <form>
+        <form id="dogNumForm">
           <input required id="dogNum" type="number" max="50" min="1">
           <button type="submit" class="button">Get Dogs!</button>
         </form>
+
+        <form id="dogBreedForm">
+          <input id="dogBreed" type="text">
+          <button type="submit" class="button">Get Breed!</button>
+        </form>
+
         <section class="results hidden">
           <h2>Look at these dogs!</h2>
           <div class="results-img" alt="placeholder"></div>
         </section>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>

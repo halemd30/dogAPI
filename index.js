@@ -8,6 +8,14 @@ function getDogImage(dogNum) {
     .catch(error => alert('Something went wrong. Try again later.'));
 }
 
+function getDogBreed(dogBreed) {
+  fetch(`https://dog.ceo/api/breed/${dogBreed}/images`)
+    .then(response => response.json())
+    .then(responseJson => 
+      displayResults(responseJson))
+    .catch(error => alert('Something went wrong. Try again later.'));
+}
+
 function displayResults(responseJson) {
   const html = responseJson.message.map(m => {
     return `<img src="${m}" class="results-img">`
@@ -19,15 +27,24 @@ function displayResults(responseJson) {
   $('.results').removeClass('hidden');
 }
 
-function watchForm() {
-  $('form').submit(event => {
+function watchNumForm() {
+  $('#dogNumForm').submit(event => {
     const dogNum = $('#dogNum').val();
     event.preventDefault();
     getDogImage(dogNum);
   });
 }
 
+function watchBreedForm() {
+  $('#dogBreedForm').submit(event => {
+    const dogBreed = $('#dogBreed').val();
+    event.preventDefault();
+    getDogBreed(dogBreed);
+  });
+}
+
 $(function() {
   console.log('App loaded! Waiting for submit!');
-  watchForm();
+  watchNumForm();
+  watchBreedForm();
 });
