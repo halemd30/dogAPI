@@ -9,7 +9,7 @@ function getDogImage(dogNum) {
 }
 
 function getDogBreed(dogBreed) {
-  fetch(`https://dog.ceo/api/breed/${dogBreed}/images`)
+  fetch(`https://dog.ceo/api/breed/${dogBreed}/images/random`)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
