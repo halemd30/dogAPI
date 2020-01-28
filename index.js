@@ -5,15 +5,16 @@ function getDogImage(dogNum) {
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
-    .catch(error => alert('Something went wrong. Try again later.'));
+    .catch(error => alert('Something went wrong. Check getDogImage.'));
 }
 
 function getDogBreed(dogBreed) {
-  fetch(`https://dog.ceo/api/breed/${dogBreed}/images/random`)
+  fetch(`https://dog.ceo/api/breed/${dogBreed}/images`)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
-    .catch(error => alert('Something went wrong. Try again later.'));
+    .catch(error => alert('Something went wrong. check getDogBreed.'));
+    console.log(responseJson);
 }
 
 function displayResults(responseJson) {
@@ -22,7 +23,7 @@ function displayResults(responseJson) {
   });
   console.log(responseJson, html);
   //replace the existing image with the new one
-  $('.results-img').html(html)
+  $('.results-img').html(html);
   //display the results section
   $('.results').removeClass('hidden');
 }
